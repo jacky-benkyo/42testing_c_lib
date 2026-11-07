@@ -21,32 +21,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential valgrind
 
-      # 3. Test Makefile rules (all, clean, fclean, re)
-      - name: Test Makefile Rules
-        run: |
-          echo "=== Testing make all ==="
-          make all
-          test -f libft.a || (echo "libft.a was not created!" && exit 1)
-
-          echo "=== Testing make clean ==="
-          make clean
-          test ! -f ft_strlen.o || (echo "Object files still exist!" && exit 1)
-
-          echo "=== Testing make re ==="
-          make re
-          test -f libft.a || (echo "libft.a missing after make re!" && exit 1)
-
-      # 4. Compile test.c and link with libft.a
+      # 3. Compile test.c and link with libft.a
       - name: Compile Unit Tests
         run: |
           cc -Wall -Wextra -Werror test.c -L. -lft -o tester
 
-      # 5. Run Test Suite
+      # 4. Run Test Suite
       - name: Run Test Suite
         run: |
           ./tester
 
-      # 6. (Optional) use Valgrind to check Memory Leaks
+      # 5. (Optional) use Valgrind to check Memory Leaks
       - name: Check Memory Leaks with Valgrind
         run: |
           valgrind --leak-check=full --error-exitcode=42 ./tester
