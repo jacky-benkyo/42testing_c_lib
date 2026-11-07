@@ -109,6 +109,10 @@ int main(void)
     assert(cal2 != NULL);
     free(cal2);
 
+    void *cal3 = ft_calloc(1, 1);
+    assert(cal3 != NULL);
+    free(cal3);
+
     char *dup1 = ft_strdup("42 Heilbronn");
     assert(dup1 != NULL);
     assert(strcmp(dup1, "42 Heilbronn") == 0);
