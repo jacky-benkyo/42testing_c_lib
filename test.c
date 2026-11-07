@@ -62,7 +62,7 @@ int main(void)
     assert(ft_strlcpy(dst1, "Hello", 10) == 5);
     assert(strcmp(dst1, "Hello") == 0);
 
-    char dst2[3] = "xxxxx";
+    char dst2[6] = "xxxxx";
     assert(ft_strlcpy(dst2, "Hello", 3) == 5);
     assert(strncmp(dst2, "He", 3) == 0);
 
@@ -88,7 +88,8 @@ int main(void)
 
     assert(ft_strnstr("hello world", "lo", 8) == strstr("hello world", "lo"));
     assert(ft_strnstr("hello world", "world", 5) == NULL);
-    assert(ft_strnstr("hello world", "", 5) == "hello world");
+    char const *haystack = "hello world";
+    assert(ft_strnstr(haystack, "", 5) == haystack);
 
     assert(ft_atoi("  \t\n -42") == -42);
     assert(ft_atoi(" +123abc45") == 123);
