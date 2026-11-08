@@ -71,7 +71,7 @@ int main(void)
     assert(strcmp(dst3, "Hi 42") == 0);
 
     char dst4[4] = "Hi ";
-    assert(ft_strlcat(dst4, "42", 4) == 6);
+    assert(ft_strlcat(dst4, "42", 4) == 5);
     assert(strcmp(dst4, "Hi ") == 0);
 
     assert(ft_strchr("hello", 'e') == strchr("hello", 'e'));
