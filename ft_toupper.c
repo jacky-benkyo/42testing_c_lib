@@ -6,18 +6,19 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:52:25 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 18:50:52 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	int result;
-	result = 0;
+	//int result;
+
+	//result = 0;
 	if ((c >= 97 ) && (c <= 122))
-		result = c - 32;
-	return (result);
+		return (c - 32);
+	return (c);
 }
 

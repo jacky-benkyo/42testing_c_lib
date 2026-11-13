@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:49:20 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:39:29 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 17:26:13 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 
 //memmove() copies the data first to an intermediate buffer, then from the buffer to destination.
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	{
-	const unsigned char *m = NULL;
-	unsigned char *p = NULL;
-	size_t l;
-	int len;
+	const unsigned char	*m = NULL;
+	unsigned char	*p = NULL;
+	size_t	l;
+	size_t	len;
 
 	m = (unsigned char *) src;
 	p = (unsigned char *) dest;
 	l = 0;
-	len = 0;
 
 	//get strlen
-	len = ft_strlen((char*)m);
+	len = ft_strlen((const char *)src);
 
 	if (len == 0)
 		return (void *)dest;

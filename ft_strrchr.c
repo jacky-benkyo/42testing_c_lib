@@ -6,32 +6,36 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:51:32 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:46:41 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 19:37:07 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 //locates the last occurrence of a character in a string and returns a pointer to it.
-char* ft_strrchr( char* str, int chr )
+char	*ft_strrchr(const char *str, int chr)
 {
-	int temp;
+	int	temp;
 	int	pos1;
 
 	temp = -1;
 	pos1 = 0;
 	while (str[pos1] != '\0')
 	{
-		if (str[pos1] == chr)
+		if (str[pos1] == (char)chr)
 			temp = pos1;
 		pos1++;
 	}
+
+	//case '\0'
+	if ((str[pos1] == (char)chr))
+		return ((char*)&str[pos1]);
+
 	if (temp != -1)
 	{
-		return(&str[temp]);
+		return ((char *)&str[temp]);
 	}
 	else
 	{
-		return NULL;
+		return 0;
 	}
 }
+

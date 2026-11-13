@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ft_putstr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 17:15:01 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/06 15:45:35 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "../libft.h"
+#include "../../libft.h"
 
-/*       ssize_t write(size_t count;
-                     int fd, const void buf[count], size_t count);
-DESCRIPTION         top
-       write() writes up to count bytes from the buffer starting at buf
-       to the file referred to by the file descriptor fd.
-*/
-
-void ft_putstr_fd(char *s, int fd)
+void ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    int i;
-
-    i = 0;
-    while (s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+	if ((c >= 97 ) && (c <= 122))
+		return (c - 32);
 }
 

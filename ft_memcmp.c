@@ -6,16 +6,17 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:21 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:28:50 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 15:59:05 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //Unlike strcmp(), comparison does not stop when a '\0' byte is encountered.
-int ft_memcmp(const void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *dest, const void *src, size_t n)
 {
-	const unsigned char *m = NULL;
-	unsigned char *p = NULL;
+	const unsigned char	*m = NULL;
+	unsigned char	*p = NULL;
+
 	m = (unsigned char *) src;
 	p = (unsigned char *) dest;
 	size_t l;

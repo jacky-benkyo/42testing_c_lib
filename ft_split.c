@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 15:31:39 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 18:43:04 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 17:48:06 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,22 @@ static int word_count(const char *str, char c);
 static char *fill_word(const char *str, int start, int end);
 static void *ft_free(char **strs, int count);
 
-char **ft_split(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
     char **res;
-    int i;
+    size_t i;
     int j;
-	int result;
+	size_t result;
+	size_t s_word;
+
+	j = 0;
+	i = 0;
 	result = 0;
+	s_word = 0;
 	if(!s)
 		return (NULL);
 	result = word_count(s, c); //until delimter
+	s_word = ft_strlen(s);
 	if (result == 0)
 		res = NULL;
 	else
@@ -35,7 +41,7 @@ char **ft_split(const char *s, char c)
 			return (NULL);
 		while (i <= result)
 		{
-			if (s[i] != c && s_word < 0)
+			if ((s[i] != c) &&(s_word < 0))
 				s_word = i;
 			else if ((s[i] == c || i == ft_strlen(s)) && s_word >= 0)
 			{
@@ -58,7 +64,7 @@ char **ft_split(const char *s, char c)
 	//return the splited word
 
 
-static void *ft_free(char **strs, int count)
+static void	*ft_free(char **strs, int count)
 {
     int i;
 
@@ -72,7 +78,7 @@ static void *ft_free(char **strs, int count)
     return (NULL);
 }
 
-static char *fill_word(const char *str, int start, int end)
+static char	*fill_word(const char *str, int start, int end)
 {
     char *word;
     int i;
@@ -91,7 +97,7 @@ static char *fill_word(const char *str, int start, int end)
     return (word);
 }
 
-static int word_count(const char *str, char c)
+static int	word_count(const char *str, char c)
 { // Return the number of words to be splited
 	int word;
     int count;

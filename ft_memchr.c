@@ -6,17 +6,17 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:27:20 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 15:58:50 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char *str;
-	size_t l;
-	unsigned char intchar;
+	unsigned char	*str;
+	size_t	l;
+	unsigned char	intchar;
 
 	/* converting both s and c to unsigned char */
     str = (unsigned char *) s;

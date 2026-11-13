@@ -6,17 +6,18 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:53 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:14:59 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 15:55:08 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int res;
-	int i;
-	int sign;
+	int	res;
+	int	i;
+	int	sign;
+
 	i = 0;
 	res = 0;
 	sign = 1;

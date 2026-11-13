@@ -6,14 +6,14 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:50:05 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 14:37:57 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 16:00:45 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // adds the source string after the destination string and appends a null terminator at the end.
-char *ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	unsigned int	pos1;
 	unsigned int	pos2;

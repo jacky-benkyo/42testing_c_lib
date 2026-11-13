@@ -6,13 +6,13 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:51:45 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 14:38:05 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 16:01:00 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	pos;
 

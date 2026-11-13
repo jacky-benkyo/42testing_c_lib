@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:41 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:46:30 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 16:01:03 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //locates the first occurrence of the  null-terminated string  little  in  the  string big,
 //where not more than len characters are searched
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	pos1;
 

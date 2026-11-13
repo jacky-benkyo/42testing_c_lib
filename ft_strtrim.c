@@ -6,17 +6,17 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/10 18:18:48 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 17:12:57 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 
-static int to_trim(const char *set, char c);
-static char *new_str(const char *s1, size_t start, size_t end);
+static int	to_trim(const char *set, char c);
+static char	*new_str(const char *s1, size_t start, size_t end);
 
-static int to_trim(const char *set, char c)
+static int	to_trim(const char *set, char c)
 {
 	int i;
 
@@ -30,12 +30,12 @@ static int to_trim(const char *set, char c)
 	return (0);
 }
 
-static char *new_str(const char *s1, size_t start, size_t len)
+static char	*new_str(const char *s1, size_t start, size_t len)
 {
 	char *new_str;
 	size_t i;
 
-	if (len <= 0 || start >= ft_strlen(s1))
+	if (len <= 0 || start >= (size_t)(ft_strlen((char *)s1)))
 		return (ft_strdup(""));
 	new_str = ft_calloc(len + 1, sizeof(char));
 	if (!new_str)
@@ -51,10 +51,10 @@ static char *new_str(const char *s1, size_t start, size_t len)
 	return (new_str);
 }
 
-char *ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = ft_strlen(s1) - 1;

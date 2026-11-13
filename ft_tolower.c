@@ -6,17 +6,18 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:19 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:51:57 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 18:50:55 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	int result;
-	result = 0;
+	//int result;
+
+	//result = 0;
 	if ((c >= 65 ) && (c <= 90))
-		result = c + 32;
-	return (result);
+		return (c + 32);
+	return (c);
 }

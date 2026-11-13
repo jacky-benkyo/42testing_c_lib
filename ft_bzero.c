@@ -6,15 +6,15 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:28:33 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 15:18:54 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 15:57:38 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	char *p;
+	char	*p;
 	p = (char*)s;
 
 	size_t len;

@@ -6,73 +6,72 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/10 18:40:37 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 16:48:04 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
 
-	#include "libft.h"
+static int	int_len(long nbr);
+static char	*pre_conv(int len);
 
-	static int int_len(long nbr);
-	static char *pre_conv(int len);
+char	*ft_itoa(int n)
+{
+	int	len;
+	int	i;
+	char	*result;
+	long	nbr;
 
-	char *ft_itoa(int n)
+	nbr = n;
+	i = 0;
+
+	len = int_len(nbr);
+
+	result = pre_conv(len);
+	if (!result)
+		return (NULL);
+
+	while (nbr != 0)
 	{
-	    int len;
-	    int i;
-	    char *result;
-	    long nbr;
+		result[i] = ((nbr % 10) + 48);
+		nbr = nbr / 10;
+		i--;
+	}
+	return result;
+}
 
-	    nbr = n;
+static char	*pre_conv(int len)
+{
+	char	*tmp;
 
-	    len = int_len(nbr);
 
-	    result = pre_conv(len);
-	    if (!result)
-	        return (NULL);
+	tmp = malloc((len + 1) * sizeof(char));
+	if (!tmp)
+		return (NULL);
+	tmp[len + 1] = '\0';
+	return (tmp);
+}
 
-	    while (nbr != 0)
-	    {
-	        result[i] = ((nbr % 10) + 48);
-	        nbr = nbr / 10;
-	        i--;
-	    }
+static int	int_len(long nbr)
+{
+	int	count;
+	count = 0;
 
+	if (nbr == 0)
+		count++;
+
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		count++;
 	}
 
-	static char *pre_conv(int len)
+	while (nbr != 0)
 	{
-	    char *tmp;
-
-
-	    tmp = malloc((len + 1) * sizeof(char));
-	    if (!tmp)
-	        return (NULL);
-	  	tmp[len + 1] = '/0';
-	    return (tmp);
+		nbr = nbr/10;
+		count++;
 	}
-
-	static int_len(long nbr)
-	{
-	    int count;
-	    count = 0;
-
-	    if (nbr == 0)
-	        count++;
-
-		if (nbr < 0)
-	    {
-			nbr = -nbr;
-			count++;
-	    }
-
-	    while (nbr != 0)
-	    {
-	        nbr = nbr/10;
-	        count++;
-	    }
-	    return (count);
-	}
+	return (count);
+}
 

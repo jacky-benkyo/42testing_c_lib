@@ -6,18 +6,18 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 10:10:54 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/08 14:38:02 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/13 17:26:39 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t ft_strlen(const char *s)
 {
 	int	pos;
 
 	pos = 0;
-	while (str[pos] != '\0')
+	while (s[pos] != '\0')
 		pos++;
 	return (pos);
 }
