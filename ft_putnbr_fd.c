@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/12 15:38:45 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 18:21:19 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-    if (n == -2147483648)
+	if (n == -2147483648)
 	{
-        write(fd, "-2147483648", 11);
-		return ;
+		write(fd, "-2147483648", 11);
+		return;
 	}
 	else if (n < 0)
-    {
-        write(fd, "-", 1);
+	{
+		write(fd, "-", 1);
 		n = -1 * n;
-    }
+	}
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
-    n= n % 10;
-    n = (n + '0');
-    write(fd, &n, 1);
+	n = n % 10;
+	n = (n + '0');
+	write(fd, &n, 1);
 }

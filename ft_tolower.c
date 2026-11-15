@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:19 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 18:50:55 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:50:55 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	ft_tolower(int c)
 {
-	//int result;
-
-	//result = 0;
 	if ((c >= 65 ) && (c <= 90))
 		return (c + 32);
 	return (c);

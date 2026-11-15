@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 15:52:58 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 18:22:30 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 {
 	size_t	i;
 	unsigned long	*p;
-	i	= 0;
 
-	p	= malloc(nelem * elsize);
+	i = 0;
+	p = malloc(nelem * elsize);
 	if (!p)
-		return(NULL);
+		return (NULL);
 	while (i < (nelem * elsize))
 	{
 		p[i] = 0;
 		i++;
 	}
-	return(p);
+	return (p);
 }

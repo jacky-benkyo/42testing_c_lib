@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:51:45 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 16:01:00 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:50:24 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (n == 0)
 		return (0);
 	pos = 0;
-	while (s1[pos] != '\0' && (s2[pos] != '\0') && (pos < n ))
+	while ((s1[pos] != '\0') && (s2[pos] != '\0') && (pos < n))
 	{
 		if ((s1[pos]) != (s2[pos]))
 			break ;

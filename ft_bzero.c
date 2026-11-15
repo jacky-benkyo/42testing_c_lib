@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:28:33 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 15:57:38 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:47:08 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_bzero(void *s, size_t n)
 {
 	char	*p;
-	p = (char*)s;
+	size_t	len;
 
-	size_t len;
+	p = (char *)s;
 	len = 0;
 	while (len < n)
 	{

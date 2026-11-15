@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 18:50:52 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:50:48 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	ft_toupper(int c)
 {
-	//int result;
-
-	//result = 0;
 	if ((c >= 97 ) && (c <= 122))
 		return (c - 32);
 	return (c);

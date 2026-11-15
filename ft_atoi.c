@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:53 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 15:55:08 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 18:00:56 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	res = 0;
 	sign = 1;
-	//check whitespace character
-	while (((nptr[i] >= 9) && (nptr[i] <= 13)) || (nptr[i] == 32))
+	while (((nptr[i] >= 9) && (nptr[i] <= 13))
+		|| (nptr[i] == 32))
 		i++;
-	if (nptr[i] == '+' && nptr[i+1] != '-' )
+	if (nptr[i] == '+' && nptr[i + 1] != '-')
 		i++;
 	if (nptr[i] == '-')
 	{
@@ -38,3 +38,4 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res * sign);
 }
+//check whitespace character

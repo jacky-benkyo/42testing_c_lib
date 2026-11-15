@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:31:59 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 18:57:53 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:49:46 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
-	typedef struct s_list
+typedef struct s_list
 {
 	void	*content;
-	struct	s_list *next;
-}t_list;
+	struct	s_list	*next;
+}	t_list;
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);

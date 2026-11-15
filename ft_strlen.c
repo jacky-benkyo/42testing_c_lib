@@ -6,13 +6,13 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 10:10:54 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 17:26:39 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:49:35 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	pos;
 

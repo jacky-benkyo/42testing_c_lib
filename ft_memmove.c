@@ -6,41 +6,34 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:49:20 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 17:26:13 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 18:08:05 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-//memmove() copies the data first to an intermediate buffer, then from the buffer to destination.
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	{
-	const unsigned char	*m = NULL;
-	unsigned char	*p = NULL;
+	unsigned char	*m;
+	unsigned char	*p;
 	size_t	l;
-	size_t	len;
 
+	if (!src && !dest)
+		return (NULL);
 	m = (unsigned char *) src;
 	p = (unsigned char *) dest;
 	l = 0;
-
-	//get strlen
-	len = ft_strlen((const char *)src);
-
-	if (len == 0)
-		return (void *)dest;
-	while(l < n)
+	if (p +(n) > m + (n))
 	{
-		if (p[l] == m[l])
-			l++;
+		while (0 < n--)
+			p[n] = m[n];
 	}
-	return ((void*)&p[l]);
+	else
+	{
+		while (n > l++)
+			p[l - 1] = m[l - 1];
+	}
+	return ((void *)dest);
 }
-}
-
-//char source[] = "Hello, world!";
-//char destination[20];
-
-//memmove(destination, source, strlen(source) + 1);
+//memmove() copies the data first to an intermediate
+//buffer, then from the buffer to destination.

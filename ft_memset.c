@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:59:35 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 16:00:00 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:58:31 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 void	*ft_memset(void *str, int c, size_t n)
 {
-	unsigned char	*m = NULL;
+	unsigned char	*m;
 	size_t	len;
 
-	str = m;
+	if (!str)
+		return (NULL);
+	m = (unsigned char *) str;
 	len = 0;
-
-	if (n < 1)
+	if ((int)n < 1)
 		return (0);
-	while (len < n)
+	else
 	{
-		m[len] = (unsigned char) c;
-		m++;
-		len++;
+		while (len < n)
+		{
+			m[len] = (unsigned char) c;
+			len++;
+		}
 	}
-	return (str);
+	return ((void *)m);
 }
-

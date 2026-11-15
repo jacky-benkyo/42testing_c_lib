@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:49:33 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 15:59:17 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 18:07:04 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	const unsigned char	*m = NULL;
-	unsigned char	*p = NULL;
+	unsigned char	*m;
+	unsigned char	*p;
 	size_t	l;
 
+	if (!src && !dest)
+		return (NULL);
 	l = 0;
 	m = (unsigned char *) src;
 	p = (unsigned char *) dest;
-
-	while(l < n)
+	while (l < n)
 	{
-		if (p[l] == m[l])
-			l++;
+		p[l] = m[l];
+		l++;
 	}
-	return ((void*)&p[l]);
+	return ((void*) dest);
 }
-

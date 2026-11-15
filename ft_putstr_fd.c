@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 16:43:30 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/15 17:43:28 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ DESCRIPTION         top
        write() writes up to count bytes from the buffer starting at buf
        to the file referred to by the file descriptor fd.
 */
-
 void	ft_putstr_fd(char *s, int fd)
 {
     int	i;
