@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 static int	int_len(long nbr);
@@ -18,60 +17,58 @@ static char	*pre_conv(int len);
 
 char	*ft_itoa(int n)
 {
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 	char	*result;
 	long	nbr;
 
 	nbr = n;
-	i = 0;
-
 	len = int_len(nbr);
-
+	i = len - 1;
 	result = pre_conv(len);
 	if (!result)
 		return (NULL);
-
+	if (nbr == 0)
+		result[0] = '0';
+	if (nbr < 0)
+	{
+		result[0] = '-';
+		nbr = -nbr;
+	}
 	while (nbr != 0)
 	{
-		result[i] = ((nbr % 10) + 48);
+		result[i] = ((nbr % 10) + '0');
 		nbr = nbr / 10;
 		i--;
 	}
-	return result;
+	return (result);
 }
 
 static char	*pre_conv(int len)
 {
 	char	*tmp;
 
-
 	tmp = malloc((len + 1) * sizeof(char));
 	if (!tmp)
 		return (NULL);
-	tmp[len + 1] = '\0';
+	tmp[len] = '\0';
 	return (tmp);
 }
 
 static int	int_len(long nbr)
 {
 	int	count;
+
 	count = 0;
-
-	if (nbr == 0)
-		count++;
-
-	if (nbr < 0)
+	if (nbr <= 0)
 	{
 		nbr = -nbr;
 		count++;
 	}
-
 	while (nbr != 0)
 	{
-		nbr = nbr/10;
+		nbr = nbr / 10;
 		count++;
 	}
 	return (count);
 }
-

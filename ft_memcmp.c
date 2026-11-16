@@ -16,7 +16,7 @@ int	ft_memcmp(const void *dest, const void *src, size_t n)
 {
 	unsigned char	*m;
 	unsigned char	*p;
-	size_t	l;
+	size_t			l;
 
 	if ((!src && !dest) || (n == 0))
 		return (0);

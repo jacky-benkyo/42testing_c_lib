@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *str, int ch)
 {
-	int	pos1;
+	int		pos1;
 	char	check;
 
 	pos1 = 0;

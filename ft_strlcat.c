@@ -12,22 +12,28 @@
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	pos1;
-	unsigned int	pos2;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
-	pos1 = 0;
-	while (dest[pos1] != '\0')
-		pos1++;
-	pos2 = 0;
-	while (src[pos2] != '\0')
+	src_len = ft_strlen(src);
+	if (size == 0)
+		return (src_len);
+	dst_len = 0;
+	while (dst_len < size && dest[dst_len] != '\0')
+		dst_len++;
+	if (size <= dst_len)
+		return (size + src_len);
+	i = 0;
+	while (src[i] != '\0' && (dst_len + i + 1) < size)
 	{
-		dest[pos1 + pos2] = src[pos2];
-		pos2++;
+		dest[dst_len + i] = src[i];
+		i++;
 	}
-	dest[pos1 + pos2] = '\0';
-	return (dest);
+	dest[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
 // adds the source string after the destination string
 //and appends a null terminator at the end.

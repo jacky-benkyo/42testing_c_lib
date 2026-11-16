@@ -12,21 +12,14 @@
 
 #include "libft.h"
 
-/*       ssize_t write(size_t count;
-                     int fd, const void buf[count], size_t count);
-DESCRIPTION         top
-       write() writes up to count bytes from the buffer starting at buf
-       to the file referred to by the file descriptor fd.
-*/
 void	ft_putstr_fd(char *s, int fd)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    while (s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
-

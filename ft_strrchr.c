@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//locates the last occurrence of a character in a string and returns a pointer to it.
 char	*ft_strrchr(const char *str, int chr)
 {
 	int	temp;
@@ -25,9 +24,12 @@ char	*ft_strrchr(const char *str, int chr)
 		pos1++;
 	}
 	if ((str[pos1] == (char)chr))
-		return ((char*)&str[pos1]);
+		return ((char *)&str[pos1]);
 	if (temp != -1)
 		return ((char *)&str[temp]);
 	else
-		return 0;
-}//case '\0'
+		return (0);
+}
+//case '\0'
+//locates the last occurrence of a character 
+//in a string and returns a pointer to it.

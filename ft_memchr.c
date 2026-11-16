@@ -15,18 +15,16 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*str;
-	size_t	l;
-	unsigned char	intchar;
+	size_t				l;
+	unsigned char		intchar;
 
-	if (!s)
-		return (NULL);
 	str = (unsigned char *) s;
 	intchar = (unsigned char) c;
 	l = 0;
 	while (l < n)
 	{
 		if (str[l] == intchar)
-			return ((void*)&str[l]);
+			return ((void *)&str[l]);
 		l++;
 	}
 	return (NULL);

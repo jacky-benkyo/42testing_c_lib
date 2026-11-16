@@ -1,3 +1,5 @@
+# Make builds a dependency tree starting from 
+#the first rule (all $\rightarrow$ $(NAME)):
 
 NAME        = libft.a
 # Compiler
@@ -46,15 +48,15 @@ SRCS        = ft_atoi.c \
 OFILES = $(SRCS:.c=.o)
 
 # Set target
-all: $(NAME) clean
-
-# Compile .c files to .o files
-#%.o: %.c libft.h
-#	$(CC) $(CFLAGS) -c $< -o $@
+all: $(NAME)
 
 # Create static library libft.a
 $(NAME): $(OFILES)
 	$(AR) $(NAME) $(OFILES)
+
+# Compile .c files to .o files
+%.o: %.c libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clear all .o object files
 clean:

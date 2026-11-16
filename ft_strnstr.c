@@ -10,37 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	pos1;
-	int	check;
 	size_t	little_len;
-	size_t	big_len;
+
+	if (little[0] == '\0')
+		return ((char *)big);
 	if (len == 0)
 		return (NULL);
-	if ((!big || !little))
-		return (NULL);
 	little_len = ft_strlen(little);
-	big_len = ft_strlen(big);
-	if (big_len < little_len || (little[0] == '\0'))
-		return ((char *) big);
 	pos1 = 0;
-	while (pos1 < len)
+	while (big[pos1] && pos1 < len)
 	{
-		if (big[pos1] == little[0] && ((pos1 + little_len) <= len))
+		if (big[pos1] == little[0] && (pos1 + little_len) <= len)
 		{
-			check = ft_strncmp((big + pos1), little, little_len);
-			if (check == 0)
+			if (ft_strncmp(big + pos1, little, little_len) == 0)
 				return ((char *)&big[pos1]);
 		}
 		pos1++;
 	}
 	return (NULL);
 }
-//locates the first occurrence of the  null-terminated string  little  in  the  string big,
+//locates the 1st occurrence of the null-terminated str little in str big,
 //where not more than len characters are searched
 //Empty little check first: The function
 //immediately checks if (*little == '\0') and returns (char *)big.

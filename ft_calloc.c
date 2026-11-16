@@ -14,10 +14,15 @@
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	size_t	i;
-	unsigned long	*p;
+	size_t			i;
+	unsigned char	*p;
 
 	i = 0;
+	if (nelem != 0 && elsize != 0)
+	{
+		if (nelem > ((size_t)-1) / elsize)
+			return (NULL);
+	}
 	p = malloc(nelem * elsize);
 	if (!p)
 		return (NULL);
@@ -26,5 +31,5 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 		p[i] = 0;
 		i++;
 	}
-	return (p);
+	return ((void *)p);
 }
