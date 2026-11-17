@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 16:48:04 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 18:09:58 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ static int	int_len(long nbr)
 	int	count;
 
 	count = 0;
-	if (nbr <= 0)
+	if (nbr == 0)
+		count++;
+	if (nbr < 0)
 	{
 		nbr = -nbr;
 		count++;

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/06 15:41:34 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 18:44:35 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../libft.h"
-#include "../../libft.h"
+#include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if ((c >= 97 ) && (c <= 122))
-		return (c - 32);
+	new->next = *lst;
+	*lst = new;
 }
-
+	//if (!*lst || !new)
+	//	return;

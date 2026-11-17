@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 14:28:33 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 17:47:08 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 19:33:33 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	len = 0;
 	while (len < n)
 	{
-		p[len++] = '\0';
+		p[len] = '\0';
+		len++;
 	}
 }

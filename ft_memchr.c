@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 18:16:19 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 18:57:30 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 /* converting both s and c to unsigned char */
+	//if (!s)
+	//	return (NULL);

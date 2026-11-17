@@ -6,9 +6,11 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:51:32 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 18:13:40 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 14:00:35 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *str, int chr)
 {
@@ -30,6 +32,5 @@ char	*ft_strrchr(const char *str, int chr)
 	else
 		return (0);
 }
-//case '\0'
-//locates the last occurrence of a character 
-//in a string and returns a pointer to it.
+//locates the last occurrence of a character in a string
+//and returns a pointer to it.

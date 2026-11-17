@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 15:46:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/06 15:46:48 by yichow           ###   ########.fr       */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/17 18:58:25 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../libft.h"
-#include "../../libft.h"
+#include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if ((c >= 97 ) && (c <= 122))
-		return (c - 32);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	lst->next = NULL;
+	free(lst);
 }
-

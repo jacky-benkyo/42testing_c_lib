@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 15:31:39 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/13 17:48:06 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 18:56:15 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ char		**ft_split(const char *s, char c);
 
 static int	word_count(const char *str, char c)
 {
+	int	word;
 	int	count;
-	int	in_word;
 
 	count = 0;
-	in_word = 0;
+	word = 0;
 	while (*str)
 	{
-		if (*str != c && in_word == 0)
+		if (*str == c)
+			word = 0;
+		else if ((*str != c) && (word == 0))
 		{
-			in_word = 1;
+			word = 1;
 			count++;
 		}
-		else if (*str == c)
-			in_word = 0;
 		str++;
 	}
 	return (count);
@@ -49,7 +49,11 @@ static char	*fill_word(const char *str, int start, int end)
 	if (!word)
 		return (NULL);
 	while (start < end)
-		word[i++] = str[start++];
+	{
+		word[i] = str[start];
+		i++;
+		start++;
+	}
 	word[i] = '\0';
 	return (word);
 }
@@ -60,7 +64,10 @@ static void	*ft_free(char **strs, int count)
 
 	i = 0;
 	while (i < count)
-		free(strs[i++]);
+	{
+		free(strs[i]);
+		i++;
+	}
 	free(strs);
 	return (NULL);
 }
@@ -94,10 +101,12 @@ static char	**split_words(char **res, const char *s, char c, size_t len)
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
+	int		word_check;
 
 	if (!s)
 		return (NULL);
-	res = ft_calloc(word_count(s, c) + 1, sizeof(char *));
+	word_check = word_count(s, c) + 1 ;
+	res = ft_calloc(word_check, sizeof(char *));
 	if (!res)
 		return (NULL);
 	return (split_words(res, s, c, ft_strlen(s)));

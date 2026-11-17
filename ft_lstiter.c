@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/06 15:41:19 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/17 18:54:59 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../libft.h"
-#include "../../libft.h"
+#include "libft.h"
 
-int ft_lstsize(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if ((c >= 97 ) && (c <= 122))
-		return (c - 32);
-}
+	t_list	*temp;
 
+	temp = lst;
+	while ((temp))
+	{
+		f(temp->content);
+		temp = temp->next;
+	}
+}
