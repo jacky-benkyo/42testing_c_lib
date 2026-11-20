@@ -29,3 +29,7 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
+//string duplicate
+// returns a pointer to a new string which is a
+//duplicate of the string s
+//returns NULL if insufficient memory was available

@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *str, int chr)
 {
-	int	temp;
-	int	pos1;
+	ssize_t	temp;
+	ssize_t	pos1;
 
 	temp = -1;
 	pos1 = 0;
@@ -30,7 +30,7 @@ char	*ft_strrchr(const char *str, int chr)
 	if (temp != -1)
 		return ((char *)&str[temp]);
 	else
-		return (0);
+		return (NULL);
 }
 //locates the last occurrence of a character in a string
 //and returns a pointer to it.
