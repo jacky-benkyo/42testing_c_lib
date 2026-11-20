@@ -35,13 +35,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-//locates the 1st occurrence of the null-terminated str little in str big,
-//where not more than len characters are searched
-//Empty little check first: The function
-//immediately checks if (*little == '\0') and returns (char *)big.
-//Precedence over len: Because the empty-string check
-//executes first, len == 0 does not prevent a match.
-//Difference from non-empty little: If little is not empty and len == 0,
-//the loop terminates immediately and returns NULL.
-//if ((!big || !little))
-//	return (NULL);
+// Locates the first occurrence of the null-terminated string 'little'
+//in the string 'big', where not more than 'len' characters are searched.
+// 1. If 'little' is empty, returns 'big' (even if 'len' == 0).
+//2. If 'len' == 0 (and 'little' is not empty), returns NULL.
+//3. Checks 'little_len <= len - pos1' to ensure the whole 'little' fits
+//   within the 'len' boundary before calling ft_strncmp.
