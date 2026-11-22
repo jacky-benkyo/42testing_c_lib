@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:53 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 18:00:56 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/19 16:57:41 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	ft_atoi(const char *nptr)
 	return (res * sign);
 }
 //check whitespace character
+//The ASCII values 9–13 cover things like tab, newline, vertical tab,
+// form feed, and carriage return, and 32 is a regular space.
+//if (nptr[i] == '+' && nptr[i + 1] != '-')
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -68,13 +71,13 @@ void	ft_bzero(void *s, size_t n)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_calloc.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:24:45 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/19 14:33:19 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +102,10 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 		p[i] = 0;
 		i++;
 	}
-	return ((void *) p);
+	return ((void *)p);
 }
+//malloc(0) returns a non-NULL pointer in this case.
+//if (!p) is false (since p is not NULL), so you don't return early.
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -125,13 +130,13 @@ int	ft_isalnum(int c)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_isalpha.c                                      :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/13 15:58:42 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:20:53 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/13 15:58:42 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/13 16:04:03 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +144,7 @@ int	ft_isalnum(int c)
 
 int	ft_isalpha(int c)
 {
-	if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')))
+	if (((c >= 'a' ) && (c <= 'z')) || ((c >= 'A' ) && (c <= 'Z')))
 		return (1);
 	return (0);
 }
@@ -213,14 +218,14 @@ int	ft_isprint(int c)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:09:58 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:13:08 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	int_len(long nbr);
-static char	*pre_conv(int len);
+static char	*mem_alc(int len);
 
 char	*ft_itoa(int n)
 {
@@ -232,7 +237,7 @@ char	*ft_itoa(int n)
 	nbr = n;
 	len = int_len(nbr);
 	i = len - 1;
-	result = pre_conv(len);
+	result = mem_alc(len);
 	if (!result)
 		return (NULL);
 	if (nbr == 0)
@@ -251,7 +256,7 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-static char	*pre_conv(int len)
+static char	*mem_alc(int len)
 {
 	char	*tmp;
 
@@ -283,13 +288,13 @@ static int	int_len(long nbr)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_lstadd_back.c                                  :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:20:25 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:13:47 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -309,17 +314,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last = ft_lstlast(*lst);
 	last->next = new;
 }
-//if (!*lst || !new)
-//	return;
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_lstadd_front.c                                 :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:17:19 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:13:37 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -332,23 +335,21 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-//if (!*lst || !new)
-//	return;
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_lstclear.c                                     :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:18:15 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:31:55 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*temp;
 
@@ -387,13 +388,13 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_lstiter.c                                      :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:22:20 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:19:15 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -403,8 +404,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*temp;
 
+	if (!lst || *f)
+		return ;
 	temp = lst;
-	while (temp)
+	while ((temp))
 	{
 		f(temp->content);
 		temp = temp->next;
@@ -434,13 +437,13 @@ t_list	*ft_lstlast(t_list *lst)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_lstmap.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/06 15:46:06 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:19:52 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/06 15:46:06 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:32:04 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -459,9 +462,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		new_content = f(lst->content);
 		new_node = ft_lstnew(new_content);
-		if (!new_node)
+		if (!new_content)
 		{
-			del(new_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
@@ -470,8 +472,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_lst);
 }
-//if (!lst || !f || !del)
-//	return (NULL);
+	//if (!lst || !f || !del)
+	//	return (NULL);
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -535,7 +537,7 @@ int	ft_lstsize(t_list *lst)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:57:30 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:21:21 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -558,9 +560,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-/* converting both s and c to unsigned char */
-	//if (!s)
-	//	return (NULL);
+//Finds the first occurrence of (unsigned char)c  in the initial n bytes
+// (each interpreted as unsigned char) of the object pointed to by s.
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -569,7 +570,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:21 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:24:39 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/19 16:59:22 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -594,16 +595,22 @@ int	ft_memcmp(const void *dest, const void *src, size_t n)
 	}
 	return (0);
 }
-//Unlike strcmp(), comparison does not stop when a '\0' byte is encountered.
+//Compares the first count bytes of the objects pointed to by dest and src.
+//with unsigned char, the sign of the result is the sign of the difference
+//B2 the values of the first pair of bytes, The behavior is undefined if
+//1) access occurs beyond the end of either object pointed to by dest and src
+//2) either dest or src is a null pointer and no bytes in n
+//In this function undefined behavior is treated as 0,
+//as refer to return type of the origrinal memcmp function
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_memcpy.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:49:33 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:14:52 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:49:33 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/19 15:47:51 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -611,14 +618,14 @@ int	ft_memcmp(const void *dest, const void *src, size_t n)
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	const unsigned char	*m;
-	unsigned char		*p;
-	size_t				l;
+	unsigned char	*m;
+	unsigned char	*p;
+	size_t			l;
 
 	if (!src && !dest)
 		return (NULL);
 	l = 0;
-	m = (const unsigned char *) src;
+	m = (unsigned char *) src;
 	p = (unsigned char *) dest;
 	while (l < n)
 	{
@@ -627,15 +634,18 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return ((void *) dest);
 }
+//copies n bytes from memory area src to
+//memory area dest.  The memory areas must not overlap
+//if n == 0, it returns the dest pointer unchanged.
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_memmove.c                                      :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:49:20 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:10:51 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:49:20 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/19 16:16:54 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -662,10 +672,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n > l++)
 			p[l - 1] = m[l - 1];
 	}
-	return ((void *) dest);
+	return ((void *)dest);
 }
 //memmove() copies the data first to an intermediate
 //buffer, then from the buffer to destination.
+//similar to memcpy(3), but the memory areas may overlap.
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -674,7 +685,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 15:59:35 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 13:37:35 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:19:18 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -682,27 +693,30 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 void	*ft_memset(void *str, int c, size_t n)
 {
-	unsigned char	*m;
+	unsigned char	*p;
 	size_t			len;
 
-	m = (unsigned char *) str;
+	p = (unsigned char *) str;
 	len = 0;
 	while (len < n)
 	{
-		m[len] = (unsigned char) c;
+		p[len] = (unsigned char) c;
 		len++;
 	}
-	return ((void *)m);
+	return ((void *)p);
 }
+//fills the first n bytes of the memory area
+//pointed to by a with the constant byte c
+//if n = 0, return the default address that p is pointing to
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_putchar_fd.c                                   :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:12:16 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/15 17:51:32 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -714,13 +728,13 @@ void	ft_putchar_fd(char c, int fd)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_putendl_fd.c                                   :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:10:47 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:22:54 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -748,7 +762,7 @@ void	ft_putendl_fd(char *s, int fd)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 13:47:47 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:23:22 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -756,6 +770,8 @@ void	ft_putendl_fd(char *s, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	char	c;
+
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
@@ -769,18 +785,21 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
 	n = n % 10;
-	n = (n + '0');
-	write(fd, &n, 1);
+	c = (n + '0');
+	write(fd, &c, 1);
 }
+//0 = standard input (stdin)
+//1 = standard output (stdout — the terminal)
+//2 = standard error (stderr)
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_putstr_fd.c                                    :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:12:50 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:23:42 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -800,20 +819,20 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 /*       ssize_t write(size_t count;
-int fd, const void buf[count], size_t count);
+                     int fd, const void buf[count], size_t count);
 DESCRIPTION         top
-write() writes up to count bytes from the buffer starting at buf
-to the file referred to by the file descriptor fd.
+       write() writes up to count bytes from the buffer starting at buf
+       to the file referred to by the file descriptor fd.
 */
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_split.c                                        :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/06 15:31:39 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:22:03 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/06 15:31:39 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/17 18:56:15 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -912,7 +931,7 @@ char	**ft_split(const char *s, char c)
 
 	if (!s)
 		return (NULL);
-	word_check = word_count(s, c) + 1;
+	word_check = word_count(s, c) + 1 ;
 	res = ft_calloc(word_check, sizeof(char *));
 	if (!res)
 		return (NULL);
@@ -981,24 +1000,21 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
-//string duplicate
-// returns a pointer to a new string which is a
-//duplicate of the string s
-//returns NULL if insufficient memory was available/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_striteri.c                                     :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:10:35 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:27:41 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
@@ -1125,13 +1141,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 // //the destination string is always null-terminated
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_strlen.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/12 10:10:54 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:10:25 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 10:10:54 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/15 17:49:35 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1139,7 +1155,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	pos;
+	int	pos;
 
 	pos = 0;
 	while (s[pos] != '\0')
@@ -1148,13 +1164,13 @@ size_t	ft_strlen(const char *s)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_strmapi.c                                      :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:11:14 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:32:14 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1164,16 +1180,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*result;
-	size_t			len;
 
-	i = 0;
 	if (!s || !f)
 		return (NULL);
-	len = ft_strlen(s);
-	result = malloc((len + 1) * sizeof(char));
+	i = 0;
+	result = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
-	while (i < len)
+	while (i < ft_strlen(s))
 	{
 		result[i] = (*f)(i, s[i]);
 		i++;
@@ -1192,7 +1206,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:51:45 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 17:50:24 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:29:16 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1200,7 +1214,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	pos;
+	size_t	pos;
 
 	if (n == 0)
 		return (0);
@@ -1252,12 +1266,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-// Locates the first occurrence of the null-terminated string 'little'
-//in the string 'big', where not more than 'len' characters are searched.
-// 1. If 'little' is empty, returns 'big' (even if 'len' == 0).
-//2. If 'len' == 0 (and 'little' is not empty), returns NULL.
-//3. Checks 'little_len <= len - pos1' to ensure the whole 'little' fits
-//   within the 'len' boundary before calling ft_strncmp.
+//locates the 1st occurrence of the null-terminated str little in str big,
+//where not more than len characters are searched
+//Empty little check first: The function
+//immediately checks if (*little == '\0') and returns (char *)big.
+//Precedence over len: Because the empty-string check
+//executes first, len == 0 does not prevent a match.
+//Difference from non-empty little: If little is not empty and len == 0,
+//the loop terminates immediately and returns NULL.
+//if ((!big || !little))
+//	return (NULL);
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -1274,8 +1292,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 char	*ft_strrchr(const char *str, int chr)
 {
-	ssize_t	temp;
-	ssize_t	pos1;
+	int	temp;
+	int	pos1;
 
 	temp = -1;
 	pos1 = 0;
@@ -1290,25 +1308,26 @@ char	*ft_strrchr(const char *str, int chr)
 	if (temp != -1)
 		return ((char *)&str[temp]);
 	else
-		return (NULL);
+		return (0);
 }
 //locates the last occurrence of a character in a string
 //and returns a pointer to it.
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_strtrim.c                                      :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:10:30 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/22 16:31:00 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	to_trim(const char *set, char c);
+static char	*new_str(const char *s1, size_t start, size_t end);
 
 static int	to_trim(const char *set, char c)
 {
@@ -1341,13 +1360,13 @@ char	*ft_strtrim(const char *s1, const char *set)
 }
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_substr.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:24:03 by yichow          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
+/*   Updated: 2026/11/15 18:24:50 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1359,10 +1378,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	size_t	strl;
 
+	strl = ft_strlen(s);
 	if (!s)
 		return (NULL);
-	strl = ft_strlen(s);
-	if (start > (unsigned int) strl)
+	if (start > (unsigned int)strl)
 		return (ft_strdup(""));
 	if (len > strl - start)
 		len = strl - start;
@@ -1377,11 +1396,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (substr);
 }
-//case
-//1. start > strl , return nothing ""
-//strl >= start + len
-//2. len + start < strl
-//Check s is not pointing to anything i.e. no value
+	//case
+	//1. start > strl , return nothing ""
+	//strl >= start + len
+	//2. len + start < strl
+	//Check s is not pointing to anything i.e. no value
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
