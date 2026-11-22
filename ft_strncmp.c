@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:51:45 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:29:05 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:54:47 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t pos;
+
 	if (n == 0)
 		return (0);
 	pos = 0;

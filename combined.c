@@ -443,7 +443,7 @@ t_list	*ft_lstlast(t_list *lst)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 15:46:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:40:20 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:54:24 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -464,6 +464,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
+			del(new_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
@@ -1170,7 +1171,7 @@ size_t	ft_strlen(const char *s)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:32:14 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:56:27 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1180,14 +1181,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*result;
+	char strlen;
 
 	if (!s || !f)
 		return (NULL);
+	strlen = ft_strlen(s);
 	i = 0;
-	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	result = malloc((strlen + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
-	while (i < ft_strlen(s))
+	while (i < strlen)
 	{
 		result[i] = (*f)(i, s[i]);
 		i++;
@@ -1320,14 +1323,13 @@ char	*ft_strrchr(const char *str, int chr)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:31:00 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:52:45 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	to_trim(const char *set, char c);
-static char	*new_str(const char *s1, size_t start, size_t end);
 
 static int	to_trim(const char *set, char c)
 {
@@ -1366,7 +1368,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 18:24:50 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:56:59 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1378,10 +1380,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	size_t	strl;
 
-	strl = ft_strlen(s);
 	if (!s)
 		return (NULL);
-	if (start > (unsigned int)strl)
+	strl = ft_strlen(s);
+	if ((size_t) start > strl)
 		return (ft_strdup(""));
 	if (len > strl - start)
 		len = strl - start;
