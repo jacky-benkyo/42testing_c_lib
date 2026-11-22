@@ -508,16 +508,16 @@ t_list	*ft_lstnew(void *content)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:55:17 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 17:18:45 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+unsigned int	ft_lstsize(t_list *lst)
 {
-	t_list	*temp;
-	int		count;
+	t_list			*temp;
+	unsigned int	count;
 
 	count = 0;
 	temp = lst;
@@ -1171,7 +1171,7 @@ size_t	ft_strlen(const char *s)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:56:27 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 17:05:29 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1181,16 +1181,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*result;
-	char strlen;
+	size_t			len;
 
 	if (!s || !f)
 		return (NULL);
-	strlen = ft_strlen(s);
+	len = ft_strlen(s);
 	i = 0;
-	result = malloc((strlen + 1) * sizeof(char));
+	result = malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
-	while (i < strlen)
+	while (i < len)
 	{
 		result[i] = (*f)(i, s[i]);
 		i++;
