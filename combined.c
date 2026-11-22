@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:52:53 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/19 16:57:41 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:41:55 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	res;
-	int	i;
-	int	sign;
+	long	res;
+	int		i;
+	int		sign;
 
 	i = 0;
 	res = 0;
@@ -394,7 +394,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:19:15 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:39:03 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -404,7 +404,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*temp;
 
-	if (!lst || *f)
+	if (!lst || !f)
 		return ;
 	temp = lst;
 	while ((temp))
@@ -443,7 +443,7 @@ t_list	*ft_lstlast(t_list *lst)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 15:46:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/22 16:32:04 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:40:20 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -462,7 +462,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		new_content = f(lst->content);
 		new_node = ft_lstnew(new_content);
-		if (!new_content)
+		if (!new_node)
 		{
 			ft_lstclear(&new_lst, del);
 			return (NULL);
@@ -1147,7 +1147,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 10:10:54 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 17:49:35 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 16:41:16 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1155,7 +1155,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 size_t	ft_strlen(const char *s)
 {
-	int	pos;
+	size_t	pos;
 
 	pos = 0;
 	while (s[pos] != '\0')
