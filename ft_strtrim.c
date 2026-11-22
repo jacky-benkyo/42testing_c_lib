@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 14:02:19 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_strtrim.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:10:30 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 	i = 0;
 	while (s1[i] && to_trim(set, s1[i]))
 		i++;
-	j = ft_strlen(s1) - 1;
-	while (j > i && to_trim(set, s1[j-1]))
+	j = ft_strlen(s1);
+	while (j > i && to_trim(set, s1[j - 1]))
 		j--;
 	return (ft_substr(s1, i, j - i));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 16:49:20 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 13:36:52 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_memmove.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/10/19 16:49:20 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:10:51 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	m = (unsigned char *) src;
 	p = (unsigned char *) dest;
 	l = 0;
-	if (p +(n) > m + (n))
+	if (p > m)
 	{
 		while (0 < n--)
 			p[n] = m[n];
@@ -33,7 +33,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n > l++)
 			p[l - 1] = m[l - 1];
 	}
-	return ((void *)dest);
+	return ((void *) dest);
 }
 //memmove() copies the data first to an intermediate
 //buffer, then from the buffer to destination.

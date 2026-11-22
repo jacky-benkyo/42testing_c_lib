@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 15:31:39 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:56:15 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_split.c                                        :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 15:31:39 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:22:03 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	**ft_split(const char *s, char c)
 
 	if (!s)
 		return (NULL);
-	word_check = word_count(s, c) + 1 ;
+	word_check = word_count(s, c) + 1;
 	res = ft_calloc(word_check, sizeof(char *));
 	if (!res)
 		return (NULL);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 15:46:06 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:58:57 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_lstmap.c                                       :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 15:46:06 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:19:52 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_node;
 	void	*new_content;
 
+	if (!lst || !f || !del)
+		return (NULL);
 	new_lst = NULL;
 	while (lst)
 	{
 		new_content = f(lst->content);
 		new_node = ft_lstnew(new_content);
-		if (!new_content)
+		if (!new_node)
 		{
+			del(new_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
@@ -33,5 +36,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_lst);
 }
-	//if (!lst || !f || !del)
-	//	return (NULL);
+//if (!lst || !f || !del)
+//	return (NULL);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 18:55:43 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_lstadd_back.c                                  :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:20:25 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
+	if (!lst || !new)
+		return ;
 	if (!*lst)
 	{
 		*lst = new;
@@ -25,4 +27,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last->next = new;
 }
 //if (!*lst || !new)
-	//	return;
+//	return;

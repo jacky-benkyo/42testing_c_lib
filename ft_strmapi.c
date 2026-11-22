@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 13:53:05 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_strmapi.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:11:14 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*result;
+	size_t			len;
 
 	i = 0;
-	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	result = malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
-	while (i < ft_strlen(s))
+	while (i < len)
 	{
 		result[i] = (*f)(i, s[i]);
 		i++;

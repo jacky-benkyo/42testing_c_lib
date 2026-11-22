@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 16:46:14 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 18:24:50 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_substr.c                                       :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:24:03 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	size_t	strl;
 
-	
 	if (!s)
 		return (NULL);
 	strl = ft_strlen(s);
-	if (start > (unsigned int)strl)
+	if (start > (unsigned int) strl)
 		return (ft_strdup(""));
 	if (len > strl - start)
 		len = strl - start;
@@ -37,8 +36,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (substr);
 }
-	//case
-	//1. start > strl , return nothing ""
-	//strl >= start + len
-	//2. len + start < strl
-	//Check s is not pointing to anything i.e. no value
+//case
+//1. start > strl , return nothing ""
+//strl >= start + len
+//2. len + start < strl
+//Check s is not pointing to anything i.e. no value
