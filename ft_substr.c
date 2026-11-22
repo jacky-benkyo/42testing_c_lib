@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/10/19 16:46:14 by yichow           #+#    #+#              */
-/*   Updated: 2026/11/22 15:24:03 by yichow          ###   ########.fr        */
+/*   Updated: 2026/11/22 15:45:44 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	strl = ft_strlen(s);
-	if (start > (unsigned int) strl)
+	if ((size_t) start > strl)
 		return (ft_strdup(""));
 	if (len > strl - start)
 		len = strl - start;

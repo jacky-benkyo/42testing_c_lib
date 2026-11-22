@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 16:51:45 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/15 17:50:24 by yichow           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_strncmp.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: yichow <yichow@student.42heilbronn.de>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/10/19 16:51:45 by yichow           #+#    #+#              */
+/*   Updated: 2026/11/22 15:40:29 by yichow          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	pos;
-
+	size _t pos;
 	if (n == 0)
 		return (0);
 	pos = 0;
@@ -27,5 +26,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	if (pos == n)
 		return (0);
-	return (((unsigned char)s1[pos]) - ((unsigned char)s2[pos]));
+	return (((unsigned char) s1[pos]) - ((unsigned char) s2[pos]));
 }
