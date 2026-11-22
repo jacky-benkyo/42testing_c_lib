@@ -6,7 +6,7 @@
 /*   By: yichow <yichow@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 15:31:59 by yichow            #+#    #+#             */
-/*   Updated: 2026/11/17 13:55:02 by yichow           ###   ########.fr       */
+/*   Updated: 2026/11/22 17:19:05 by yichow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_putstr_fd(char *s, int fd);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
+unsigned int	ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));

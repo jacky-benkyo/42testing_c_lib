@@ -1,11 +1,11 @@
 # Make builds a dependency tree starting from
-#the first rule (all $\rightarrow$ $(NAME)):
+#the first rule (all : $(NAME)):
 
 NAME        = libft.a
 # Compiler
 CC          = cc
 # Compiler flags
-CFLAGS      = -Wall -Wextra -Werror -std=c99
+CFLAGS      = -Wall -Wextra -Werror
 AR          = ar rcs
 
 # Source files
